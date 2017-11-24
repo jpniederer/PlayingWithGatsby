@@ -10,7 +10,10 @@
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-styled-components": "^2.0.2",
     "gatsby-plugin-typography": "^1.7.10",
+    "gatsby-source-filesystem": "^1.5.8",
+    "glamorous": "^4.11.0",
     "typography-theme-bootstrap": "^0.16.7",
+    "typography-theme-kirkham": "^0.16.3",
     "typography-theme-lawton": "^0.15.10"
   },
   "keywords": [

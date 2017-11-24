@@ -2,24 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import g from 'glamorous'
+import { css } from 'glamor'
+
+import { rhythm } from '../utils/typography'
 
 import './index.css'
 
+const linkStyle = css({ float: `right` })
+
 const Header = () => (
-  <div
+  <g.Div
     style={{
       background: 'rebeccapurple',
       marginBottom: '1.45rem',
     }}
   >
-    <div
+    <g.Div
       style={{
         margin: '0 auto',
         maxWidth: 960,
         padding: '1.45rem 1.0875rem',
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <g.H1 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -29,22 +35,25 @@ const Header = () => (
         >
           Gatsby
         </Link>
-      </h1>
-    </div>
-  </div>
+      </g.H1>
+      <Link className={linkStyle} to={`/about/`}>
+        about
+      </Link>
+    </g.Div>
+  </g.Div>
 )
 
-const TemplateWrapper = ({ children }) => (
-  <div>
+const TemplateWrapper = ({ children, data }) => (
+  <g.Div>
     <Helmet
-      title="Playing with Gatsby"
+      title={data.site.siteMetadata.title}
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
     <Header />
-    <div
+    <g.Div
       style={{
         margin: '0 auto',
         maxWidth: 960,
@@ -53,8 +62,8 @@ const TemplateWrapper = ({ children }) => (
       }}
     >
       {children()}
-    </div>
-  </div>
+    </g.Div>
+  </g.Div>
 )
 
 TemplateWrapper.propTypes = {
@@ -62,3 +71,13 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+export const query = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
