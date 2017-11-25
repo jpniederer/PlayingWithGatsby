@@ -17,6 +17,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`,
       },
     },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-glamor`,
     //`gatsby-plugin-styled-components`,    
   ],
