@@ -27,7 +27,7 @@ exports.createPages = ({ actions, graphql }) => {
     resolve(graphql(`
       {
         allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter__date] }
+          sort: { order: DESC, fields: [frontmatter___date] }
           limit: 500
         ) {
           edges {
@@ -50,7 +50,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       const postTemplate = path.resolve(`src/templates/post.js`)
 
-      result.data.allMardownRemark.edges.forEach(({ node }) => {
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
           component: postTemplate,
